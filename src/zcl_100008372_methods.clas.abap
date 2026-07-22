@@ -1,21 +1,17 @@
-CLASS zcl_100008372_itab DEFINITION
+CLASS zcl_100008372_methods DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-
-    INTERFACES if_oo_adt_classrun .
-
+    INTERFACES if_oo_adt_classrun.
   PROTECTED SECTION.
-
   PRIVATE SECTION.
-
 ENDCLASS.
 
 
 
-CLASS zcl_100008372_itab IMPLEMENTATION.
+CLASS zcl_100008372_methods IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
@@ -26,10 +22,14 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 * First Instance
 **********************************************************************
 
+    connection = NEW #( ).
+
     TRY.
-        connection = NEW #(
-          i_carrier_id    = 'LH'
-          i_connection_id = '0400'
+
+        connection->set_attributes(
+          EXPORTING
+            i_carrier_id    = 'LH'
+            i_connection_id = '0400'
         ).
 
         APPEND connection TO connections.
@@ -42,10 +42,14 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 * Second Instance
 **********************************************************************
 
+    connection = NEW #( ).
+
     TRY.
-        connection = NEW #(
-          i_carrier_id    = 'AA'
-          i_connection_id = '0017'
+
+        connection->set_attributes(
+          EXPORTING
+            i_carrier_id    = 'AA'
+            i_connection_id = '0017'
         ).
 
         APPEND connection TO connections.
@@ -58,10 +62,14 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 * Third Instance
 **********************************************************************
 
+    connection = NEW #( ).
+
     TRY.
-        connection = NEW #(
-          i_carrier_id    = 'SQ'
-          i_connection_id = '0001'
+
+        connection->set_attributes(
+          EXPORTING
+            i_carrier_id    = 'SQ'
+            i_connection_id = '0001'
         ).
 
         APPEND connection TO connections.
@@ -75,7 +83,9 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 **********************************************************************
 
     LOOP AT connections INTO connection.
+
       out->write( connection->get_output( ) ).
+
     ENDLOOP.
 
   ENDMETHOD.

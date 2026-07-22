@@ -58,6 +58,8 @@ define root view entity ZC_GSPRODUCT
   @Semantics: {
     user.lastChangedBy: true
   }
+  
+  
   PriceCategory,
   LastChangedBy,
   @Semantics: {

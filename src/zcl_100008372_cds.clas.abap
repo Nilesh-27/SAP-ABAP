@@ -1,21 +1,20 @@
-CLASS zcl_100008372_itab DEFINITION
+CLASS zcl_100008372_cds DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
 
-    INTERFACES if_oo_adt_classrun .
+    INTERFACES if_oo_adt_classrun.
 
   PROTECTED SECTION.
-
   PRIVATE SECTION.
 
 ENDCLASS.
 
 
 
-CLASS zcl_100008372_itab IMPLEMENTATION.
+CLASS zcl_100008372_cds IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
@@ -27,6 +26,7 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 **********************************************************************
 
     TRY.
+
         connection = NEW #(
           i_carrier_id    = 'LH'
           i_connection_id = '0400'
@@ -36,6 +36,7 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 
       CATCH cx_abap_invalid_value.
         out->write( `Method call failed` ).
+
     ENDTRY.
 
 **********************************************************************
@@ -43,6 +44,7 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 **********************************************************************
 
     TRY.
+
         connection = NEW #(
           i_carrier_id    = 'AA'
           i_connection_id = '0017'
@@ -52,6 +54,7 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 
       CATCH cx_abap_invalid_value.
         out->write( `Method call failed` ).
+
     ENDTRY.
 
 **********************************************************************
@@ -59,6 +62,7 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 **********************************************************************
 
     TRY.
+
         connection = NEW #(
           i_carrier_id    = 'SQ'
           i_connection_id = '0001'
@@ -68,6 +72,7 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 
       CATCH cx_abap_invalid_value.
         out->write( `Method call failed` ).
+
     ENDTRY.
 
 **********************************************************************
@@ -75,7 +80,9 @@ CLASS zcl_100008372_itab IMPLEMENTATION.
 **********************************************************************
 
     LOOP AT connections INTO connection.
+
       out->write( connection->get_output( ) ).
+
     ENDLOOP.
 
   ENDMETHOD.

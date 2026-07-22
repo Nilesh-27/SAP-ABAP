@@ -84,13 +84,17 @@ annotate view ZC_GSPRODUCT with
  @EndUserText.label: 'Price Category'
 
 @UI.identification: [{
-  position: 70,
+  position: 65,
   label: 'Price Category'
 }]
 
 @UI.lineItem: [{
-  position: 70,
+  position: 65,
   label: 'Price Category'
+}]
+
+@UI.selectionField: [{
+  position: 65
 }]
 
 PriceCategory;
